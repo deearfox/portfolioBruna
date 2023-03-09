@@ -1,38 +1,37 @@
-/*Email JS*/
-const contactForm = document.getElementById('contact-form'),
-      contactName = document.getElementById('contact-name'),
-      contactEmail = document.getElementById('contact-email'),
-      contactProject = document.getElementById('contact-project'),
-      contactMessage = document.getElementById('contact-message')
-
+/*=========== EMAIL JS =============*/
+const   contactForm = document.getElementById('contact-form'),
+        contactName = document.getElementById('contact-name'),
+        contactEmail = document.getElementById('contact-email'),
+        contactProject = document.getElementById('contact-project'),
+        contactMessage = document.getElementById('contact-message')
 const sendEmail = (e) =>{
     e.preventDefault()
-
-    //Check if the field has a value
-    if(contactEmail.value === '' || contactEmail.value === '' || contactProject.value === ''){
+    // Check if the field has a value
+    if(contactName.value === '' || contactEmail.value === '' || contactProject.value === ''){
         // Add and remove color
         contactMessage.classList.remove('color-blue')
         contactMessage.classList.add('color-red')
-    }else{
+        // Show message
+        contactMessage.textContent = 'Digite em todos os campos 📩'
+    } else {
         // serviceID - templateID - #form - publicKey
         emailjs.sendForm('service_55mjd2c','template_rey43zh','#contact-form','cXOUenR88pyz7EIMX')
             .then(() =>{
-                //Show message and add color
-                contactMessage.classList.add('color-blue')
-                contactMessage.textContent = 'Mensagem enviada ✅'
-
                 // Remove message after five seconds
                 setTimeout(() =>{
                     contactMessage.textContent = ''
-                }, 5000 )
+                }, 5000)
             }, (error) => {
-                alert('OOPS! ALGUMA COISA FALHOU...', error)
+                alert('Ops! Aconteceu algum erro...', error)
             })
+        // Show message and add color
+         contactMessage.classList.add('color-blue')
+        contactMessage.textContent = 'Mensagem Enviada ✅'
+        // To clear the input field
+        contactName.value = ''
+        contactEmail.value = ''
+        contactProject.value = ''
     }
-
-    //Show message
-    contactMessage.textContent = 'Escreva em todos os campos de input 📩'
-
 }
 contactForm.addEventListener('submit', sendEmail)
 
@@ -67,25 +66,25 @@ themeButton.addEventListener('click', () => {
 
 
 // Js OwlCarousel
-$(document).ready(function(){
+$(document).ready(function () {
     $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        responsiveClass:true,
-        center: true, 
-        nav:true,        
-        responsive:{
-            0:{
-                items:1,
-                
+        loop: true,
+        margin: 10,
+        responsiveClass: true,
+        center: true,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1,
+
             },
-            600:{
-                items:3,
-             
+            600: {
+                items: 3,
+
             },
-            1000:{
-                items:3,
-               
+            1000: {
+                items: 3,
+
             }
         }
     })
