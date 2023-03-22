@@ -320,3 +320,52 @@ body.light-theme{
     text-align: center;
     -webkit-tap-highlight-color: transparent;
 }
+
+.social{
+    
+    position: fixed;
+    display: flex;  
+    right: -150px;
+    top: 35%;
+    flex-direction: column;
+    z-index: 3;
+}
+
+.social a{
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-top: 0.5rem;
+    transition: all .5s ease;
+}
+
+.social a:hover{
+    transform: translateX(-150px);
+}
+
+.social a svg{
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+
+}
+
+
+.social a.github{
+    background-color: #131418;
+}
+
+.social a.linkedin{
+    background-color: #1DA1F2;
+}
+
+.social a.whatsapp{
+    background-color: #25D366;
+}
+
+
+
+
+
